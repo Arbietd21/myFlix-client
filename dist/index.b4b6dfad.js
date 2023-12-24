@@ -27200,7 +27200,7 @@ const MainView = ()=>{
         children: movies.map((movie)=>{
             return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 children: movie.title
-            }, void 0, false, {
+            }, movie.id, false, {
                 fileName: "src/components/MainView/main-view.jsx",
                 lineNumber: 17,
                 columnNumber: 24
