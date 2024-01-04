@@ -11,7 +11,7 @@ export const MainView = () => {
         fetch("https://git.heroku.com/movie-flix-api.git/movies")
             .then((response) => response.json())
             .then((data) => {
-                console.log('books from api:', data)
+                console.log('movies from api:', data)
             })
     }, []);
 
