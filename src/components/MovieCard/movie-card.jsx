@@ -10,9 +10,9 @@ export const MovieCard = ({ movie, onMovieClick }) => {
     );
 };
 
-BookCard.propTypes = {
+MovieCard.propTypes = {
     book: PropTypes.shape({
-        title: PropTypes.string
+        title: PropTypes.string.isRequired
     }).isRequired,
     onBookClick: PropTypes.func.isRequired
 };
