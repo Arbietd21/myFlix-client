@@ -27318,8 +27318,8 @@ const MainView = ()=>{
     const [movies, setMovies] = (0, _react.useState)([]);
     const [selectedMovie, setSelectedMovie] = (0, _react.useState)(null);
     (0, _react.useEffect)(()=>{
-        fetch("https://git.heroku.com/movie-flix-api.git/movies").then((response)=>response.json()).then((data)=>{
-            console.log("movies from api:", data);
+        fetch("https://movie-flix-api-ca627b5a7961.herokuapp.com/movies").then((response)=>response.json()).then((data)=>{
+            console.log(data);
         });
     }, []);
     if (selectedMovie) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieView.MovieView), {

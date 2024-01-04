@@ -8,10 +8,10 @@ export const MainView = () => {
     const [selectedMovie, setSelectedMovie] = useState(null);
 
     useEffect(() => {
-        fetch("https://git.heroku.com/movie-flix-api.git/movies")
+        fetch("https://movie-flix-api-ca627b5a7961.herokuapp.com/movies")
             .then((response) => response.json())
             .then((data) => {
-                console.log('movies from api:', data)
+                console.log(data)
             })
     }, []);
 
