@@ -1,16 +1,19 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { MovieCard } from '../MovieCard/movie-card'
 import { MovieView } from '../MovieView/movie-view'
 
 export const MainView = () => {
-    const [movies, setMovies] = useState([
-        //movies array
-        { id: 1, title: 'Creed', image: "https://www.filmaffinity.com/en/film943315.html", director: "Ryan Coogler" },
-        { id: 2, title: 'Fast and Furious', image: "https://www.filmaffinity.com/en/film484467.html", director: "" },
-        { id: 3, title: 'Thor Ragnarok', image: "https://www.filmaffinity.com/en/film546383.html", director: "Taika W" }
-    ]);
+    const [movies, setMovies] = useState([]);
 
     const [selectedMovie, setSelectedMovie] = useState(null);
+
+    useEffect(() => {
+        fetch("https://git.heroku.com/movie-flix-api.git/movies")
+            .then((response) => response.json())
+            .then((data) => {
+                console.log('books from api:', data)
+            })
+    }, []);
 
     if (selectedMovie) {
         return <MovieView movie={selectedMovie} onBackClick={() => setSelectedMovie(null)} />;

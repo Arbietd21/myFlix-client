@@ -27315,41 +27315,26 @@ var _movieView = require("../MovieView/movie-view");
 var _s = $RefreshSig$();
 const MainView = ()=>{
     _s();
-    const [movies, setMovies] = (0, _react.useState)([
-        //movies array
-        {
-            id: 1,
-            title: "Creed",
-            image: "https://www.filmaffinity.com/en/film943315.html",
-            director: "Ryan Coogler"
-        },
-        {
-            id: 2,
-            title: "Fast and Furious",
-            image: "https://www.filmaffinity.com/en/film484467.html",
-            director: ""
-        },
-        {
-            id: 3,
-            title: "Thor Ragnarok",
-            image: "https://www.filmaffinity.com/en/film546383.html",
-            director: "Taika W"
-        }
-    ]);
+    const [movies, setMovies] = (0, _react.useState)([]);
     const [selectedMovie, setSelectedMovie] = (0, _react.useState)(null);
+    (0, _react.useEffect)(()=>{
+        fetch("https://git.heroku.com/movie-flix-api.git/movies").then((response)=>response.json()).then((data)=>{
+            console.log("books from api:", data);
+        });
+    }, []);
     if (selectedMovie) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieView.MovieView), {
         movie: selectedMovie,
         onBackClick: ()=>setSelectedMovie(null)
     }, void 0, false, {
         fileName: "src/components/MainView/main-view.jsx",
-        lineNumber: 16,
+        lineNumber: 19,
         columnNumber: 16
     }, undefined);
     if (movies.length === 0) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: "The list is empty!"
     }, void 0, false, {
         fileName: "src/components/MainView/main-view.jsx",
-        lineNumber: 20,
+        lineNumber: 23,
         columnNumber: 16
     }, undefined);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27360,16 +27345,16 @@ const MainView = ()=>{
                 }
             }, movie.id, false, {
                 fileName: "src/components/MainView/main-view.jsx",
-                lineNumber: 26,
+                lineNumber: 29,
                 columnNumber: 17
             }, undefined))
     }, void 0, false, {
         fileName: "src/components/MainView/main-view.jsx",
-        lineNumber: 24,
+        lineNumber: 27,
         columnNumber: 9
     }, undefined);
 };
-_s(MainView, "HEBn4YFQXeCkH73V7moAt6qMRr0=");
+_s(MainView, "PO+XgOji7E32nFJj3H5UPLPJ7w4=");
 _c = MainView;
 var _c;
 $RefreshReg$(_c, "MainView");
