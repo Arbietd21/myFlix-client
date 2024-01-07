@@ -10,11 +10,16 @@ export const MainView = () => {
     useEffect(() => {
         fetch("https://movie-flix-api-ca627b5a7961.herokuapp.com/movies")
             .then((response) => response.json())
+            .then((data) => {
+                const moviesFromApi = data;
+                setMovies(moviesFromApi);
+                console.log(movies);
+            });
 
     }, []);
 
     if (selectedMovie) {
-        return <MovieView movie={selectedMovie} onBackClick={() => setSelectedMovie(null)} />;
+        return <MovieView movie={selectedMovie} onBackClick={() => setSelectedMovie(null)} />
     }
 
     if (movies.length === 0) {
@@ -29,6 +34,7 @@ export const MainView = () => {
                     movie={movie}
                     onMovieClick={(newSelectedMovie) => {
                         setSelectedMovie(newSelectedMovie);
+                        console.log(newSelectedMovie)
                     }}
                 />
             ))}
