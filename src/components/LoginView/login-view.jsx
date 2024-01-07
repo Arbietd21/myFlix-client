@@ -1,6 +1,9 @@
 import React from 'react';
+import { useState } from 'react';
 
 export const LoginView = () => {
+    const [username, setUsername] = useState('')
+    const [password, setPassword] = useState('')
     const handleSubmit = (event) => {
         const handleSubmit = (event) => {
             //this prevents the default behaviour of the form which is to reload the entire page
