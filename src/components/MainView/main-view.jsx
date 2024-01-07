@@ -10,13 +10,7 @@ export const MainView = () => {
     useEffect(() => {
         fetch("https://movie-flix-api-ca627b5a7961.herokuapp.com/movies")
             .then((response) => response.json())
-            .then((movie) => {
-                const moviesFromApi = movie.doc.map((movie) => {
-                    return {
-                        title: movie.title
-                    }
-                })
-            })
+
     }, []);
 
     if (selectedMovie) {
