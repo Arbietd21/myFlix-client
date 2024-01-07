@@ -7,5 +7,5 @@ export const LoginView = () => {
             <input type="password" />
             <button type="submit">Submit</button>
         </form>
-    )
-}
+    );
+};
