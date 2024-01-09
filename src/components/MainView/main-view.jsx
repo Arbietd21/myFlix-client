@@ -5,10 +5,13 @@ import { LoginView } from '../LoginView/login-view'
 
 export const MainView = () => {
 
+    const storedUser = JSON.parse(localStorage.getItem("user"));
+    const storedToken = localStorage.getItem("token");
+    const [user, setUser] = useState(storedUser ? storedUser : null);
+    const [token, setToken] = useState(storedToken ? storedToken : null);
     const [movies, setMovies] = useState([]);
     const [selectedMovie, setSelectedMovie] = useState(null);
-    const [user, setUser] = useState(null);
-    const [token, setToken] = useState(null);
+
 
     useEffect(() => {
         if (!token) {
@@ -32,13 +35,17 @@ export const MainView = () => {
 
     if (!user) {
         return (
-            <LoginView
-                onLoggedIn={(user, token) => {
-                    setUser(user);
-                    setToken(token);
-                }}
-            />
-        )
+            <>
+                <LoginView
+                    onLoggedIn={(user, token) => {
+                        setUser(user);
+                        setToken(token);
+                    }}
+                />
+                or
+                <SignupView />
+            </>
+        );
     }
 
     if (selectedMovie) {
@@ -61,7 +68,7 @@ export const MainView = () => {
                     }}
                 />
             ))}
-            <button onClick={() => { setUser(null); setToken(null) }} >Logout</button>
+            <button onClick={() => { setUser(null); setToken(null); localStorage.clear(); }} >Logout</button>
         </div>
     );
 };
