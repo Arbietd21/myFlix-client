@@ -27332,9 +27332,9 @@ const MainView = ()=>{
         }).then((response)=>response.json()).then((data)=>{
             const moviesFromApi = data.map((movie)=>{
                 return {
-                    title: movie.Title,
-                    director: movie.Director.Name,
-                    image: movie.ImagePath
+                    title: movie.title,
+                    director: movie.director.name,
+                    image: movie.image
                 };
             });
             setMovies(moviesFromApi);
