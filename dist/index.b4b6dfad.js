@@ -27327,7 +27327,13 @@ const MainView = ()=>{
                 Authorization: `Bearer ${token}`
             }
         }).then((response)=>response.json()).then((data)=>{
-            console.log(data);
+            const moviesFromApi = data.map((movie)=>{
+                return {
+                    id: movie._id,
+                    title: movie.Title
+                };
+            });
+            setMovies(moviesFromApi);
         });
     }, [
         token
@@ -27339,7 +27345,7 @@ const MainView = ()=>{
         }
     }, void 0, false, {
         fileName: "src/components/MainView/main-view.jsx",
-        lineNumber: 29,
+        lineNumber: 35,
         columnNumber: 13
     }, undefined);
     if (selectedMovie) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieView.MovieView), {
@@ -27347,14 +27353,14 @@ const MainView = ()=>{
         onBackClick: ()=>setSelectedMovie(null)
     }, void 0, false, {
         fileName: "src/components/MainView/main-view.jsx",
-        lineNumber: 39,
+        lineNumber: 45,
         columnNumber: 16
     }, undefined);
     if (movies.length === 0) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: "The list is empty!"
     }, void 0, false, {
         fileName: "src/components/MainView/main-view.jsx",
-        lineNumber: 43,
+        lineNumber: 49,
         columnNumber: 16
     }, undefined);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27365,9 +27371,9 @@ const MainView = ()=>{
                         setSelectedMovie(newSelectedMovie);
                         console.log(newSelectedMovie);
                     }
-                }, movie.id, false, {
+                }, movie._id, false, {
                     fileName: "src/components/MainView/main-view.jsx",
-                    lineNumber: 49,
+                    lineNumber: 55,
                     columnNumber: 17
                 }, undefined)),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -27378,13 +27384,13 @@ const MainView = ()=>{
                 children: "Logout"
             }, void 0, false, {
                 fileName: "src/components/MainView/main-view.jsx",
-                lineNumber: 58,
+                lineNumber: 64,
                 columnNumber: 13
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/MainView/main-view.jsx",
-        lineNumber: 47,
+        lineNumber: 53,
         columnNumber: 9
     }, undefined);
 };
@@ -27425,10 +27431,10 @@ const MovieCard = ({ movie, onMovieClick })=>{
 };
 _c = MovieCard;
 MovieCard.propTypes = {
-    book: (0, _propTypesDefault.default).shape({
+    movie: (0, _propTypesDefault.default).shape({
         title: (0, _propTypesDefault.default).string.isRequired
     }).isRequired,
-    onBookClick: (0, _propTypesDefault.default).func.isRequired
+    onMovieClick: (0, _propTypesDefault.default).func.isRequired
 };
 var _c;
 $RefreshReg$(_c, "MovieCard");
