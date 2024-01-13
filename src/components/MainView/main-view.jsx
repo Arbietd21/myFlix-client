@@ -46,16 +46,18 @@ export const MainView = () => {
                     <SignupView />
                 </>
             ) : selectedMovie ? (
-                <MovieView
-                    movie={selectedMovie}
-                    onBackClick={() => setSelectedMovie(null)}
-                />
+                <Col md={8} style={{ border: '1px solid black' }}>
+                    <MovieView
+                        movie={selectedMovie}
+                        onBackClick={() => setSelectedMovie(null)}
+                    />
+                </Col>
             ) : movies.length === 0 ? (
                 <div>The list is empty!</div>
             ) : (
                 <>
                     {movies.map((movie) => (
-                        <Col key={movie.id} md={3}>
+                        <Col className="mb-5" key={movie.id} md={3}>
                             <MovieCard
                                 movie={movie}
                                 onMovieClick={(newSelectedMovie) => {
