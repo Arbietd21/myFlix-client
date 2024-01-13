@@ -1,6 +1,8 @@
+import Col from 'react-bootstrap/Col'
+
 export const MovieView = ({ movie, onBackClick }) => {
     return (
-        <div>
+        <Col>
             <div>
                 <img src={movie.image} />
             </div>
@@ -15,6 +17,6 @@ export const MovieView = ({ movie, onBackClick }) => {
             <div>
                 <button onClick={onBackClick}>Back</button>
             </div>
-        </div>
+        </Col>
     )
 }
