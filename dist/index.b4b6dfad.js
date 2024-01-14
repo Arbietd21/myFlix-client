@@ -41275,8 +41275,8 @@ const LoginView = ({ onLoggedIn })=>{
         //this prevents the default behaviour of the form which is to reload the entire page
         event.preventDefault();
         const data = {
-            Username: username,
-            Password: password
+            username: username,
+            password: password
         };
         fetch("https://movie-flix-api-ca627b5a7961.herokuapp.com/login", {
             method: "POST",
@@ -41399,10 +41399,10 @@ const SignupView = ()=>{
     const handleSubmit = (event)=>{
         event.preventDefault();
         const data = {
-            Username: username,
-            Password: password,
-            Email: email,
-            Birthday: birthday
+            username: username,
+            password: password,
+            email: email,
+            birthday: birthday
         };
         fetch("https://movie-flix-api-ca627b5a7961.herokuapp.com/users", {
             method: "POST",
