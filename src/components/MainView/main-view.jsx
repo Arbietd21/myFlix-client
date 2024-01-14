@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
-import { MovieCard } from '../MovieCard/movie-card'
-import { MovieView } from '../MovieView/movie-view'
-import { LoginView } from '../LoginView/login-view'
-import { SignupView } from '../SignupView/signup-view'
+import { MovieCard } from '../MovieCard/movie-card';
+import { MovieView } from '../MovieView/movie-view';
+import { LoginView } from '../LoginView/login-view';
+import { SignupView } from '../SignupView/signup-view';
 import { Row, Col, Button } from 'react-bootstrap';
 
 export const MainView = () => {
