@@ -1,12 +1,16 @@
-import './movie-view.scss';
 import Col from 'react-bootstrap/Col';
-import Link from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { useParams } from "react-router";
+import './movie-view.scss';
 
 export const MovieView = ({ movie }) => {
+    const { movieId } = useParams();
+    const movie = movies.find((m) => m.id === movieId);
+
     return (
         <Col md={8}>
             <div>
-                <img src={movie.image} />
+                <img className="w-100" src={movie.image} />
             </div>
             <div>
                 <span>Title: </span>
@@ -16,9 +20,9 @@ export const MovieView = ({ movie }) => {
                 <span>Director: </span>
                 <span>{movie.director}</span>
             </div>
-            <div>
-                <button onClick={onBackClick}>Back</button>
-            </div>
+            <Link to={`/`}>
+                <Button className="back-button">Back</Button >
+            </Link>
         </Col>
     )
 }
