@@ -1,9 +1,10 @@
+import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
-import { Link } from 'react-router-dom';
 import { useParams } from "react-router";
+import { Link } from 'react-router-dom';
 import './movie-view.scss';
 
-export const MovieView = ({ movie }) => {
+export const MovieView = ({ movies }) => {
     const { movieId } = useParams();
     const movie = movies.find((m) => m.id === movieId);
 
