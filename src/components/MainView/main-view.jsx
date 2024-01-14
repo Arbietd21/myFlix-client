@@ -43,6 +43,7 @@ export const MainView = () => {
             <Row>
                 <Routes>
                     <Route
+                        //if there is no authenticated user, takes you to signup page
                         path="/signup"
                         element={
                             <>
@@ -58,6 +59,7 @@ export const MainView = () => {
                     />
 
                     <Route
+                        //same logic as above but this takes user to login page
                         path="/login"
                         element={
                             <>
@@ -73,6 +75,7 @@ export const MainView = () => {
                     />
 
                     <Route
+                        //if you click on a specific movie it takes you to movie view
                         path="/movies/:movieId"
                         element={
                             <>
@@ -90,6 +93,7 @@ export const MainView = () => {
                     />
 
                     <Route
+                        //if there is no user, takes you to login
                         path="/"
                         element={
                             <>
@@ -100,6 +104,7 @@ export const MainView = () => {
                                 ) : (
                                     <>
                                         {movies.map((movie) => (
+                                            //if there is an authenticated user, it takes the movies card and maps each movie
                                             <Col className="mb-4" key={movie.id} md={3}>
                                                 <MovieCard movie={movie} />
                                             </Col>
