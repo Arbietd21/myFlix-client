@@ -5,6 +5,7 @@ import { LoginView } from '../LoginView/login-view';
 import { SignupView } from '../SignupView/signup-view';
 import { Row, Col, Button } from 'react-bootstrap';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { NavBar } from '../NavView/nav-view';
 
 
 export const MainView = () => {
@@ -41,6 +42,12 @@ export const MainView = () => {
 
     return (
         <BrowserRouter>
+            <NavBar
+                user={user}
+                onLoggedOut={() => {
+                    setUser(null);
+                }}
+            />
             <Row>
                 <Routes>
                     <Route
