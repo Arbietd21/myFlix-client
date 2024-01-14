@@ -25,19 +25,28 @@ export const MainView = () => {
         fetch("https://movie-flix-api-ca627b5a7961.herokuapp.com/movies", {
             headers: { Authorization: `Bearer ${token}` }
         })
-            .then((response) => response.json())
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.json();
+            })
             .then((data) => {
-                const moviesFromApi = data.map((movie) => {
-                    return {
-                        id: movie._id,
-                        title: movie.title,
-                        director: movie.director.name,
-                        image: movie.image
-                    }
-                });
-                setMovies(moviesFromApi)
+                console.log(data);
+                const moviesFromApi = data.map((movie) => ({
+                    id: movie._id,
+                    title: movie.title,
+                    director: movie.director.name,
+                    image: movie.image
+                }));
+                setMovies(moviesFromApi);
+            })
+            .catch((error) => {
+                console.error(error);
+                // Handle the error, e.g., show a message to the user
             });
     }, [token]);
+
 
 
     return (
