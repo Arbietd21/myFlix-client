@@ -41618,11 +41618,20 @@ const NavBar = ({ user, onLoggedOut })=>{
                                     columnNumber: 29
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Nav).Link, {
+                                    as: (0, _reactRouterDom.Link),
+                                    to: "/profile",
+                                    children: "Profile"
+                                }, void 0, false, {
+                                    fileName: "src/components/NavView/nav-view.jsx",
+                                    lineNumber: 20,
+                                    columnNumber: 29
+                                }, undefined),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Nav).Link, {
                                     onClick: onLoggedOut,
                                     children: "Logout"
                                 }, void 0, false, {
                                     fileName: "src/components/NavView/nav-view.jsx",
-                                    lineNumber: 20,
+                                    lineNumber: 21,
                                     columnNumber: 29
                                 }, undefined)
                             ]
