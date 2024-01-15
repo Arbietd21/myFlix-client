@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Form, Button, Card, Container } from 'react-bootstrap';
+import bcrypt from 'bcryptjs';
 
 export const ProfileView = () => {
 
@@ -9,16 +10,19 @@ export const ProfileView = () => {
     const [password, setPassword] = useState(storedUser.password);
     const [birthday, setBirthday] = useState(storedUser.birthday);
     const [email, setEmail] = useState(storedUser.email);
-    const [favorite, setFavorite] = useState(storedUser.favorites);
 
     const updateUser = () => {
 
+        const hashedPassword = bcrypt.hashSync(password, 10)
+
         const updatedUser = {
             username: username,
-            password: password,
+            password: hashedPassword,
             email: email,
             birthday: birthday
         };
+
+        console.log(`Updated user:`, updatedUser);
 
         fetch(`https://movie-flix-api-ca627b5a7961.herokuapp.com/users/${storedUser.username}`, {
             method: "PUT",
