@@ -7,6 +7,16 @@ import './movie-view.scss';
 export const MovieView = ({ movies }) => {
     const { movieId } = useParams();
     const movie = movies.find((m) => m.id === movieId);
+    const user = JSON.parse(localStorage.getItem("user"));
+    const token = localStorage.getItem("token")
+
+    const addToFavorites = () => {
+
+        fetch(`https://movie-flix-api-ca627b5a7961.herokuapp.com/users/${user.username}/movies/${movieId}`, {
+            method: "POST",
+            headers: { Authorization: `Bearer ${token}` }
+        })
+    }
 
     return (
         <Col md={8}>
@@ -24,7 +34,9 @@ export const MovieView = ({ movies }) => {
             <Link to={`/`}>
                 <Button className="back-button">Back</Button >
             </Link>
-            <Button>Favorite</Button>
+            <Button
+                onClick={addToFavorites}
+            >Favorite</Button>
         </Col>
     )
 }
