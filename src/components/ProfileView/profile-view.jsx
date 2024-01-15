@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Form, Button, Card } from 'react-bootstrap';
+import { Form, Button, Card, Container } from 'react-bootstrap';
 
 export const ProfileView = () => {
 
@@ -65,7 +65,7 @@ export const ProfileView = () => {
                     <Form.Group>
                         <Form.Label>Password:</Form.Label>
                         <Form.Control
-                            type="password"
+                            type="text"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                         />
@@ -74,7 +74,7 @@ export const ProfileView = () => {
                     <Form.Group>
                         <Form.Label>Email:</Form.Label>
                         <Form.Control
-                            type="email"
+                            type="text"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                         />
