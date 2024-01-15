@@ -1,7 +1,5 @@
-import Col from 'react-bootstrap/Col';
-import { Link } from 'react-router-dom';
 import { useState } from 'react';
-import { Form, Button } from 'react-bootstrap';
+import { Form, Button, Card } from 'react-bootstrap';
 
 export const ProfileView = () => {
 
@@ -27,49 +25,72 @@ export const ProfileView = () => {
             headers: { Authorization: `Bearer ${token}` },
             body: JSON.stringify(updatedUser)
         })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+            })
+            .then(data => {
+                console.log(`Successfully updated!`, data);
+            })
             .catch((e) => {
                 alert("Something went wrong =(")
             });
     };
 
     return (
-        <Form>
-            <Form.Group>
-                <Form.Label>Username:</Form.Label>
-                <Form.Control
-                    type="text"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                />
-            </Form.Group>
+        <>
+            <Container>
+                {storedUser.favorites.map((movie) => (
+                    <Card>
+                        <Card.Image variant="top" src={movie.image} />
+                        <Card.Body>
+                            <Card.Title>{movie.title}</Card.Title>
+                            <Card.Text>Director: {movie.director.name}</Card.Text>
+                        </Card.Body>
+                    </Card>
+                ))}
+            </Container>
+            <Container>
+                <Form>
+                    <Form.Group>
+                        <Form.Label>Username:</Form.Label>
+                        <Form.Control
+                            type="text"
+                            value={username}
+                            onChange={(e) => setUsername(e.target.value)}
+                        />
+                    </Form.Group>
 
-            <Form.Group>
-                <Form.Label>Password:</Form.Label>
-                <Form.Control
-                    type="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                />
-            </Form.Group>
+                    <Form.Group>
+                        <Form.Label>Password:</Form.Label>
+                        <Form.Control
+                            type="password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                        />
+                    </Form.Group>
 
-            <Form.Group>
-                <Form.Label>Email:</Form.Label>
-                <Form.Control
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                />
-            </Form.Group>
+                    <Form.Group>
+                        <Form.Label>Email:</Form.Label>
+                        <Form.Control
+                            type="email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                        />
+                    </Form.Group>
 
-            <Form.Group>
-                <Form.Label>Birthday:</Form.Label>
-                <Form.Control
-                    type="text"
-                    value={birthday}
-                    onChange={(e) => setBirthday(e.target.value)}
-                />
-            </Form.Group>
-            <Button variant="primary" onClick={updateUser}>Update</Button>
-        </Form>
+                    <Form.Group>
+                        <Form.Label>Birthday:</Form.Label>
+                        <Form.Control
+                            type="text"
+                            value={birthday}
+                            onChange={(e) => setBirthday(e.target.value)}
+                        />
+                    </Form.Group>
+                    <Button variant="primary" onClick={updateUser}>Update</Button>
+                </Form>
+            </Container>
+        </>
     )
 }
