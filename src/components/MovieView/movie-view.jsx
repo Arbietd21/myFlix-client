@@ -24,6 +24,7 @@ export const MovieView = ({ movies }) => {
             <Link to={`/`}>
                 <Button className="back-button">Back</Button >
             </Link>
+            <Button>Favorite</Button>
         </Col>
     )
 }
