@@ -1,6 +1,5 @@
 import { useState } from 'react';
-import { Form, Button, Card, Container } from 'react-bootstrap';
-import bcrypt from 'bcryptjs';
+import { Form, Button, Card, Container, Col } from 'react-bootstrap';
 
 export const ProfileView = () => {
 
@@ -45,13 +44,14 @@ export const ProfileView = () => {
         <>
             <Container>
                 {storedUser.favorites.map((movie) => (
-                    <Card>
-                        <Card.Img src={movie.image} />
-                        <Card.Body>
-                            <Card.Title>{movie.title}</Card.Title>
-                            {/* <Card.Text>Director: {movie.director.name}</Card.Text> */}
-                        </Card.Body>
-                    </Card>
+                    console.log(movie)
+                    // <Col key={movie.id} >
+                    //     <Card.Img src={movie.image} />
+                    //     <Card.Body>
+                    //         <Card.Title>{movie.title}</Card.Title>
+                    //         <Card.Text>Director: {movie.director.name}</Card.Text>
+                    //     </Card.Body>
+                    // </Col>
                 ))}
             </Container>
             <Container>
