@@ -16,6 +16,9 @@ export const MovieView = ({ movies }) => {
             method: "POST",
             headers: { Authorization: `Bearer ${token}` }
         })
+            .then(
+                alert("Added to favorites!")
+            )
     }
 
     return (
