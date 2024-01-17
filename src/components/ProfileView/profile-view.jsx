@@ -44,16 +44,14 @@ export const ProfileView = () => {
         <>
             <Container>
                 {storedUser.favorites.map((movie) => (
-                    console.log(movie)
-                    // <Col key={movie.id} >
-                    //     <Card.Img src={movie.image} />
-                    //     <Card.Body>
-                    //         <Card.Title>{movie.title}</Card.Title>
-                    //         <Card.Text>Director: {movie.director.name}</Card.Text>
-                    //     </Card.Body>
-                    // </Col>
+                    < Col key={movie.id} >
+                        <Card.Img src={movie.image} />
+                        <Card.Body>
+                            <Card.Title>{movie.title}</Card.Title>
+                        </Card.Body>
+                    </Col>
                 ))}
-            </Container>
+            </Container >
             <Container>
                 <Form>
                     <Form.Group>
