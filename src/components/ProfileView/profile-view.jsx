@@ -13,11 +13,9 @@ export const ProfileView = () => {
 
     const updateUser = () => {
 
-        const hashedPassword = bcrypt.hashSync(password, 10)
-
         const updatedUser = {
             username: username,
-            password: hashedPassword,
+            password: password,
             email: email,
             birthday: birthday
         };
@@ -70,7 +68,7 @@ export const ProfileView = () => {
                     <Form.Group>
                         <Form.Label>Password:</Form.Label>
                         <Form.Control
-                            type="text"
+                            type="password"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                         />
@@ -79,7 +77,7 @@ export const ProfileView = () => {
                     <Form.Group>
                         <Form.Label>Email:</Form.Label>
                         <Form.Control
-                            type="text"
+                            type="email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                         />
@@ -88,7 +86,7 @@ export const ProfileView = () => {
                     <Form.Group>
                         <Form.Label>Birthday:</Form.Label>
                         <Form.Control
-                            type="text"
+                            type="birthdate"
                             value={birthday}
                             onChange={(e) => setBirthday(e.target.value)}
                         />
