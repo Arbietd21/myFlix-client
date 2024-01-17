@@ -32,13 +32,14 @@ export const ProfileView = () => {
             .then(response => {
                 if (!response.ok) {
                     throw new Error(`HTTP error! Status: ${response.status}`);
+                    console.log(updatedUser);
                 }
             })
             .then(data => {
                 console.log(`Successfully updated!`, data);
             })
             .catch((e) => {
-                alert("Something went wrong =(")
+                alert("Something went wrong =(");
             });
     };
 
@@ -47,10 +48,10 @@ export const ProfileView = () => {
             <Container>
                 {storedUser.favorites.map((movie) => (
                     <Card>
-                        <Card.Image variant="top" src={movie.image} />
+                        <Card.Img src={movie.image} />
                         <Card.Body>
                             <Card.Title>{movie.title}</Card.Title>
-                            <Card.Text>Director: {movie.director.name}</Card.Text>
+                            {/* <Card.Text>Director: {movie.director.name}</Card.Text> */}
                         </Card.Body>
                     </Card>
                 ))}
