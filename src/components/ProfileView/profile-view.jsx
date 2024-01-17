@@ -40,6 +40,17 @@ export const ProfileView = () => {
             });
     };
 
+    // useEffect(() => {
+    //     fetch(storedUser.favorites.map((movie) => {
+    //         return response.json();
+    //     })
+    //     .then((movie) => {
+    //         console.log(movie);
+    //         const favMovie =
+    //     })
+    //     )
+    // })
+
     return (
         <>
             <Container>
