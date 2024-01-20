@@ -41765,9 +41765,10 @@ const ProfileView = ()=>{
             body: JSON.stringify(updatedUser)
         }).then((response)=>{
             if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
-        }).then((updatedUserData)=>{
-            localStorage.setItem("user", JSON.stringify(updatedUserData));
-            console.log(`Successfully updated!`, updatedUserData);
+            return response.json();
+        }).then((data)=>{
+            localStorage.setItem("user", JSON.stringify(data));
+            console.log(`Successfully updated!`, data);
         }).catch((e)=>{
             console.error(`Error updating user:`);
             alert("Something went wrong =(");
@@ -41783,7 +41784,7 @@ const ProfileView = ()=>{
                                 children: "Username:"
                             }, void 0, false, {
                                 fileName: "src/components/ProfileView/profile-view.jsx",
-                                lineNumber: 55,
+                                lineNumber: 56,
                                 columnNumber: 25
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
@@ -41792,13 +41793,13 @@ const ProfileView = ()=>{
                                 onChange: (e)=>setUsername(e.target.value)
                             }, void 0, false, {
                                 fileName: "src/components/ProfileView/profile-view.jsx",
-                                lineNumber: 56,
+                                lineNumber: 57,
                                 columnNumber: 25
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/ProfileView/profile-view.jsx",
-                        lineNumber: 54,
+                        lineNumber: 55,
                         columnNumber: 21
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Group, {
@@ -41807,7 +41808,7 @@ const ProfileView = ()=>{
                                 children: "Password:"
                             }, void 0, false, {
                                 fileName: "src/components/ProfileView/profile-view.jsx",
-                                lineNumber: 64,
+                                lineNumber: 65,
                                 columnNumber: 25
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
@@ -41816,13 +41817,13 @@ const ProfileView = ()=>{
                                 onChange: (e)=>setPassword(e.target.value)
                             }, void 0, false, {
                                 fileName: "src/components/ProfileView/profile-view.jsx",
-                                lineNumber: 65,
+                                lineNumber: 66,
                                 columnNumber: 25
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/ProfileView/profile-view.jsx",
-                        lineNumber: 63,
+                        lineNumber: 64,
                         columnNumber: 21
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Group, {
@@ -41831,7 +41832,7 @@ const ProfileView = ()=>{
                                 children: "Email:"
                             }, void 0, false, {
                                 fileName: "src/components/ProfileView/profile-view.jsx",
-                                lineNumber: 73,
+                                lineNumber: 74,
                                 columnNumber: 25
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
@@ -41840,13 +41841,13 @@ const ProfileView = ()=>{
                                 onChange: (e)=>setEmail(e.target.value)
                             }, void 0, false, {
                                 fileName: "src/components/ProfileView/profile-view.jsx",
-                                lineNumber: 74,
+                                lineNumber: 75,
                                 columnNumber: 25
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/ProfileView/profile-view.jsx",
-                        lineNumber: 72,
+                        lineNumber: 73,
                         columnNumber: 21
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Group, {
@@ -41855,7 +41856,7 @@ const ProfileView = ()=>{
                                 children: "Birthday:"
                             }, void 0, false, {
                                 fileName: "src/components/ProfileView/profile-view.jsx",
-                                lineNumber: 82,
+                                lineNumber: 83,
                                 columnNumber: 25
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
@@ -41864,13 +41865,13 @@ const ProfileView = ()=>{
                                 onChange: (e)=>setBirthday(e.target.value)
                             }, void 0, false, {
                                 fileName: "src/components/ProfileView/profile-view.jsx",
-                                lineNumber: 83,
+                                lineNumber: 84,
                                 columnNumber: 25
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/ProfileView/profile-view.jsx",
-                        lineNumber: 81,
+                        lineNumber: 82,
                         columnNumber: 21
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
@@ -41879,18 +41880,18 @@ const ProfileView = ()=>{
                         children: "Update"
                     }, void 0, false, {
                         fileName: "src/components/ProfileView/profile-view.jsx",
-                        lineNumber: 89,
+                        lineNumber: 90,
                         columnNumber: 21
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/ProfileView/profile-view.jsx",
-                lineNumber: 53,
+                lineNumber: 54,
                 columnNumber: 17
             }, undefined)
         }, void 0, false, {
             fileName: "src/components/ProfileView/profile-view.jsx",
-            lineNumber: 52,
+            lineNumber: 53,
             columnNumber: 13
         }, undefined)
     }, void 0, false);

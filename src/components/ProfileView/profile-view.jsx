@@ -36,10 +36,11 @@ export const ProfileView = () => {
                     throw new Error(`HTTP error! Status: ${response.status}`);
                     console.log(updatedUser);
                 }
+                return response.json()
             })
-            .then(updatedUserData => {
-                localStorage.setItem('user', JSON.stringify(updatedUserData));
-                console.log(`Successfully updated!`, updatedUserData);
+            .then(data => {
+                localStorage.setItem('user', JSON.stringify(data));
+                console.log(`Successfully updated!`, data);
             })
             .catch((e) => {
                 console.error(`Error updating user:`,)
