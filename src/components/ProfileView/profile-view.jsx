@@ -9,6 +9,7 @@ export const ProfileView = () => {
     const [password, setPassword] = useState('');
     const [birthday, setBirthday] = useState('');
     const [email, setEmail] = useState('');
+    const [user, setUser] = useState('');
 
     const updateUser = () => {
 
@@ -36,16 +37,15 @@ export const ProfileView = () => {
                     console.log(updatedUser);
                 }
             })
-            .then(data => {
-                console.log(`Successfully updated!`, data);
+            .then(updatedUserData => {
+                localStorage.setItem('user', JSON.stringify(updatedUserData));
+                console.log(`Successfully updated!`, updatedUserData);
             })
             .catch((e) => {
                 console.error(`Error updating user:`,)
                 alert("Something went wrong =(");
             });
     };
-
-
 
     return (
         <>

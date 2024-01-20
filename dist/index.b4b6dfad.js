@@ -41746,6 +41746,7 @@ const ProfileView = ()=>{
     const [password, setPassword] = (0, _react.useState)("");
     const [birthday, setBirthday] = (0, _react.useState)("");
     const [email, setEmail] = (0, _react.useState)("");
+    const [user, setUser] = (0, _react.useState)("");
     const updateUser = ()=>{
         const updatedUser = {
             username: username,
@@ -41764,8 +41765,9 @@ const ProfileView = ()=>{
             body: JSON.stringify(updatedUser)
         }).then((response)=>{
             if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
-        }).then((data)=>{
-            console.log(`Successfully updated!`, data);
+        }).then((updatedUserData)=>{
+            localStorage.setItem("user", JSON.stringify(updatedUserData));
+            console.log(`Successfully updated!`, updatedUserData);
         }).catch((e)=>{
             console.error(`Error updating user:`);
             alert("Something went wrong =(");
@@ -41893,7 +41895,7 @@ const ProfileView = ()=>{
         }, undefined)
     }, void 0, false);
 };
-_s(ProfileView, "MWj3HdQRSj+7T3fdvwpRB3t7hec=");
+_s(ProfileView, "MUtmX+wlOMT3JTw6POU+uXEmjW0=");
 _c = ProfileView;
 var _c;
 $RefreshReg$(_c, "ProfileView");
