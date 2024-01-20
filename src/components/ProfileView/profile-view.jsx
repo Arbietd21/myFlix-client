@@ -12,25 +12,23 @@ export const ProfileView = () => {
 
     const updateUser = () => {
 
-        // const updatedUser = {
-        //     username: username,
-        //     password: password,
-        //     email: email,
-        //     birthday: birthday
-        // };
+        const updatedUser = {
+            username: username,
+            password: password,
+            email: email,
+            birthday: birthday
+        };
 
-        // console.log(`Updated user:`, updatedUser);
-        // console.log(`Stored username:`, storedUser.username)
+        console.log(`Updated user:`, updatedUser);
+        console.log(`Stored username:`, storedUser.username)
 
         fetch(`https://movie-flix-api-ca627b5a7961.herokuapp.com/users/${storedUser.username}`, {
             method: "PUT",
-            headers: { Authorization: `Bearer ${token}` },
-            body: JSON.stringify({
-                username: username,
-                password: password,
-                email: email,
-                birthday: birthday
-            })
+            headers: {
+                Authorization: `Bearer ${token}`,
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(updatedUser)
         })
             .then(response => {
                 if (!response.ok) {
@@ -42,6 +40,7 @@ export const ProfileView = () => {
                 console.log(`Successfully updated!`, data);
             })
             .catch((e) => {
+                console.error(`Error updating user:`,)
                 alert("Something went wrong =(");
             });
     };
