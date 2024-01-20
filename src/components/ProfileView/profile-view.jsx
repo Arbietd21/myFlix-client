@@ -5,26 +5,32 @@ export const ProfileView = () => {
 
     const token = localStorage.getItem('token');
     const storedUser = JSON.parse(localStorage.getItem('user'));
-    const [username, setUsername] = useState(storedUser.username);
-    const [password, setPassword] = useState(storedUser.password);
-    const [birthday, setBirthday] = useState(storedUser.birthday);
-    const [email, setEmail] = useState(storedUser.email);
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [birthday, setBirthday] = useState('');
+    const [email, setEmail] = useState('');
 
     const updateUser = () => {
 
-        const updatedUser = {
-            username: username,
-            password: password,
-            email: email,
-            birthday: birthday
-        };
+        // const updatedUser = {
+        //     username: username,
+        //     password: password,
+        //     email: email,
+        //     birthday: birthday
+        // };
 
-        console.log(`Updated user:`, updatedUser);
+        // console.log(`Updated user:`, updatedUser);
+        // console.log(`Stored username:`, storedUser.username)
 
         fetch(`https://movie-flix-api-ca627b5a7961.herokuapp.com/users/${storedUser.username}`, {
             method: "PUT",
             headers: { Authorization: `Bearer ${token}` },
-            body: JSON.stringify(updatedUser)
+            body: JSON.stringify({
+                username: username,
+                password: password,
+                email: email,
+                birthday: birthday
+            })
         })
             .then(response => {
                 if (!response.ok) {
@@ -40,29 +46,10 @@ export const ProfileView = () => {
             });
     };
 
-    // useEffect(() => {
-    //     fetch(storedUser.favorites.map((movie) => {
-    //         return response.json();
-    //     })
-    //     .then((movie) => {
-    //         console.log(movie);
-    //         const favMovie =
-    //     })
-    //     )
-    // })
+
 
     return (
         <>
-            <Container>
-                {storedUser.favorites.map((movie) => (
-                    < Col key={movie.id} >
-                        <Card.Img src={movie.image} />
-                        <Card.Body>
-                            <Card.Title>{movie.title}</Card.Title>
-                        </Card.Body>
-                    </Col>
-                ))}
-            </Container >
             <Container>
                 <Form>
                     <Form.Group>
