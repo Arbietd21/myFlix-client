@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Col, Card, Row } from 'react-bootstrap';
+import { MovieCard } from '../MovieCard/movie-card';
 
 export const FavMovies = () => {
     const storedUser = JSON.parse(localStorage.getItem('user'));
@@ -23,7 +24,14 @@ export const FavMovies = () => {
             })
             .then((data) => {
                 const filteredMovies = data.filter((movie) => favoriteMovies.includes(movie._id));
-                setMovies(filteredMovies);
+                const faveMovies = filteredMovies.map((movie) => ({
+                    id: movie._id,
+                    title: movie.title,
+                    director: movie.director.name,
+                    image: movie.image
+                }));
+
+                setMovies(faveMovies);
             })
             .catch((error) => {
                 console.error(error);
@@ -34,12 +42,7 @@ export const FavMovies = () => {
         <>
             {movies.map((movie) => (
                 <Col md={4} key={movie._id}>
-                    <Card>
-                        <Card.Img src={movie.image} />
-                        <Card.Body>
-                            <Card.Title>{movie.title}</Card.Title>
-                        </Card.Body>
-                    </Card>
+                    <MovieCard movie={movie} />
                 </Col>
             ))}
         </>

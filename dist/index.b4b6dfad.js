@@ -41951,6 +41951,7 @@ parcelHelpers.export(exports, "FavMovies", ()=>FavMovies);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactBootstrap = require("react-bootstrap");
+var _movieCard = require("../MovieCard/movie-card");
 var _s = $RefreshSig$();
 const FavMovies = ()=>{
     _s();
@@ -41969,7 +41970,13 @@ const FavMovies = ()=>{
             return response.json();
         }).then((data)=>{
             const filteredMovies = data.filter((movie)=>favoriteMovies.includes(movie._id));
-            setMovies(filteredMovies);
+            const faveMovies = filteredMovies.map((movie)=>({
+                    id: movie._id,
+                    title: movie.title,
+                    director: movie.director.name,
+                    image: movie.image
+                }));
+            setMovies(faveMovies);
         }).catch((error)=>{
             console.error(error);
         });
@@ -41980,37 +41987,16 @@ const FavMovies = ()=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: movies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
                 md: 4,
-                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card), {
-                    children: [
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Img, {
-                            src: movie.image
-                        }, void 0, false, {
-                            fileName: "src/components/ProfileView/fav-view.jsx",
-                            lineNumber: 38,
-                            columnNumber: 25
-                        }, undefined),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Body, {
-                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Title, {
-                                children: movie.title
-                            }, void 0, false, {
-                                fileName: "src/components/ProfileView/fav-view.jsx",
-                                lineNumber: 40,
-                                columnNumber: 29
-                            }, undefined)
-                        }, void 0, false, {
-                            fileName: "src/components/ProfileView/fav-view.jsx",
-                            lineNumber: 39,
-                            columnNumber: 25
-                        }, undefined)
-                    ]
-                }, void 0, true, {
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
+                    movie: movie
+                }, void 0, false, {
                     fileName: "src/components/ProfileView/fav-view.jsx",
-                    lineNumber: 37,
+                    lineNumber: 45,
                     columnNumber: 21
                 }, undefined)
             }, movie._id, false, {
                 fileName: "src/components/ProfileView/fav-view.jsx",
-                lineNumber: 36,
+                lineNumber: 44,
                 columnNumber: 17
             }, undefined))
     }, void 0, false);
@@ -42025,6 +42011,6 @@ $RefreshReg$(_c, "FavMovies");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-bootstrap":"3AD9A"}],"lJZlQ":[function() {},{}],"i5LP7":[function() {},{}]},["5qIsR","1xC6H","d8Dch"], "d8Dch", "parcelRequireaec4")
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-bootstrap":"3AD9A","../MovieCard/movie-card":"dg3Ls"}],"lJZlQ":[function() {},{}],"i5LP7":[function() {},{}]},["5qIsR","1xC6H","d8Dch"], "d8Dch", "parcelRequireaec4")
 
 //# sourceMappingURL=index.b4b6dfad.js.map
