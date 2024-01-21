@@ -1,0 +1,52 @@
+import { useState } from 'react';
+import { Form, Button } from 'react-bootstrap';
+
+export const SearchView = () => {
+
+    const [movieName, setMovieName] = useState('');
+    const token = localStorage.getItem(`token`)
+
+    const searchMovie = () => {
+
+        fetch(`https://movie-flix-api-ca627b5a7961.herokuapp.com/movies/${movieName}`, {
+            method: "GET",
+            headers: {
+                Authorization: `Bearer ${token}`,
+                "Content-Type": "application/json"
+            },
+        })
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then((data) => {
+                const searchedMovie = data.map((movie) => ({
+                    id: movie._id,
+                    title: movie.title,
+                    director: movie.director.name,
+                    image: movie.image
+                }))
+                console.log(searchedMovie)
+            })
+            .catch((error) => {
+                console.error(error);
+            })
+    }
+
+    return (
+        <>
+            <Form className="d-flex ms-auto">
+                <Form.Control
+                    type="search"
+                    placeholder="Movie Name"
+                    className="me-2"
+                    aria-label="Search"
+                    onChange={(e) => setMovieName(e.target.value)}
+                />
+                <Button variant="outline-success">Search</Button>
+            </Form>
+        </>
+    )
+}

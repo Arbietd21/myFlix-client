@@ -27194,6 +27194,7 @@ var _reactBootstrap = require("react-bootstrap");
 var _reactRouterDom = require("react-router-dom");
 var _navView = require("../NavView/nav-view");
 var _profileView = require("../ProfileView/profile-view");
+var _searchView = require("../SearchView/search-view");
 var _s = $RefreshSig$();
 const MainView = ()=>{
     _s();
@@ -27355,23 +27356,30 @@ const MainView = ()=>{
                                     lineNumber: 120,
                                     columnNumber: 37
                                 }, void 0) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
-                                    children: movies.map((movie)=>//if there is an authenticated user, it takes the movies card and maps each movie
-                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
-                                            className: "mb-4",
-                                            md: 3,
-                                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
-                                                movie: movie
-                                            }, void 0, false, {
-                                                fileName: "src/components/MainView/main-view.jsx",
-                                                lineNumber: 126,
-                                                columnNumber: 49
-                                            }, void 0)
-                                        }, movie.id, false, {
+                                    children: [
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _searchView.SearchView), {}, void 0, false, {
                                             fileName: "src/components/MainView/main-view.jsx",
-                                            lineNumber: 125,
-                                            columnNumber: 45
-                                        }, void 0))
-                                }, void 0, false)
+                                            lineNumber: 123,
+                                            columnNumber: 41
+                                        }, void 0),
+                                        movies.map((movie)=>//if there is an authenticated user, it takes the movies card and maps each movie
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
+                                                className: "mb-4",
+                                                md: 3,
+                                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
+                                                    movie: movie
+                                                }, void 0, false, {
+                                                    fileName: "src/components/MainView/main-view.jsx",
+                                                    lineNumber: 128,
+                                                    columnNumber: 49
+                                                }, void 0)
+                                            }, movie.id, false, {
+                                                fileName: "src/components/MainView/main-view.jsx",
+                                                lineNumber: 127,
+                                                columnNumber: 45
+                                            }, void 0))
+                                    ]
+                                }, void 0, true)
                             }, void 0, false)
                         }, void 0, false, {
                             fileName: "src/components/MainView/main-view.jsx",
@@ -27386,17 +27394,17 @@ const MainView = ()=>{
                                     replace: true
                                 }, void 0, false, {
                                     fileName: "src/components/MainView/main-view.jsx",
-                                    lineNumber: 140,
+                                    lineNumber: 142,
                                     columnNumber: 37
                                 }, void 0) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _profileView.ProfileView), {}, void 0, false, {
                                     fileName: "src/components/MainView/main-view.jsx",
-                                    lineNumber: 142,
+                                    lineNumber: 144,
                                     columnNumber: 37
                                 }, void 0)
                             }, void 0, false)
                         }, void 0, false, {
                             fileName: "src/components/MainView/main-view.jsx",
-                            lineNumber: 135,
+                            lineNumber: 137,
                             columnNumber: 21
                         }, undefined)
                     ]
@@ -27427,7 +27435,7 @@ $RefreshReg$(_c, "MainView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../MovieCard/movie-card":"dg3Ls","../MovieView/movie-view":"9Uua1","../LoginView/login-view":"6cJc6","../SignupView/signup-view":"bpvce","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-bootstrap":"3AD9A","react-router-dom":"9xmpe","../NavView/nav-view":"bbNS5","../ProfileView/profile-view":"kSwFP"}],"dg3Ls":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../MovieCard/movie-card":"dg3Ls","../MovieView/movie-view":"9Uua1","../LoginView/login-view":"6cJc6","../SignupView/signup-view":"bpvce","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-bootstrap":"3AD9A","react-router-dom":"9xmpe","../NavView/nav-view":"bbNS5","../ProfileView/profile-view":"kSwFP","../SearchView/search-view":"M2wgy"}],"dg3Ls":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$2506 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -41622,9 +41630,12 @@ var _reactBootstrap = require("react-bootstrap");
 var _reactRouterDom = require("react-router-dom");
 const NavBar = ({ user, onLoggedOut })=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Navbar), {
-        bg: "light",
+        bg: "primary",
         expand: "lg",
+        "data-bs-theme": "dark",
+        className: "bg-body-tertiary",
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Container), {
+            fluid: true,
             children: [
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Navbar).Brand, {
                     as: (0, _reactRouterDom.Link),
@@ -41645,12 +41656,12 @@ const NavBar = ({ user, onLoggedOut })=>{
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Navbar).Collapse, {
                     id: "basic-navbar-nav",
                     children: [
-                        !user && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
+                        !user && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Nav), {
                             children: [
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Nav).Link, {
                                     as: (0, _reactRouterDom.Link),
                                     to: "/login",
-                                    children: "Login"
+                                    children: " Login "
                                 }, void 0, false, {
                                     fileName: "src/components/NavView/nav-view.jsx",
                                     lineNumber: 13,
@@ -41659,44 +41670,54 @@ const NavBar = ({ user, onLoggedOut })=>{
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Nav).Link, {
                                     as: (0, _reactRouterDom.Link),
                                     to: "/signup",
-                                    children: "SignUp"
+                                    children: " SignUp "
                                 }, void 0, false, {
                                     fileName: "src/components/NavView/nav-view.jsx",
                                     lineNumber: 14,
                                     columnNumber: 29
                                 }, undefined)
                             ]
-                        }, void 0, true),
+                        }, void 0, true, {
+                            fileName: "src/components/NavView/nav-view.jsx",
+                            lineNumber: 12,
+                            columnNumber: 25
+                        }, undefined),
                         user && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
-                            children: [
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Nav).Link, {
-                                    as: (0, _reactRouterDom.Link),
-                                    to: "/",
-                                    children: "Movies"
-                                }, void 0, false, {
-                                    fileName: "src/components/NavView/nav-view.jsx",
-                                    lineNumber: 19,
-                                    columnNumber: 29
-                                }, undefined),
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Nav).Link, {
-                                    as: (0, _reactRouterDom.Link),
-                                    to: "/profile",
-                                    children: "Profile"
-                                }, void 0, false, {
-                                    fileName: "src/components/NavView/nav-view.jsx",
-                                    lineNumber: 20,
-                                    columnNumber: 29
-                                }, undefined),
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Nav).Link, {
-                                    onClick: onLoggedOut,
-                                    children: "Logout"
-                                }, void 0, false, {
-                                    fileName: "src/components/NavView/nav-view.jsx",
-                                    lineNumber: 21,
-                                    columnNumber: 29
-                                }, undefined)
-                            ]
-                        }, void 0, true)
+                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Nav), {
+                                children: [
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Nav).Link, {
+                                        as: (0, _reactRouterDom.Link),
+                                        to: "/",
+                                        children: "Movies"
+                                    }, void 0, false, {
+                                        fileName: "src/components/NavView/nav-view.jsx",
+                                        lineNumber: 20,
+                                        columnNumber: 33
+                                    }, undefined),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Nav).Link, {
+                                        as: (0, _reactRouterDom.Link),
+                                        to: "/profile",
+                                        children: " Profile "
+                                    }, void 0, false, {
+                                        fileName: "src/components/NavView/nav-view.jsx",
+                                        lineNumber: 21,
+                                        columnNumber: 33
+                                    }, undefined),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Nav).Link, {
+                                        onClick: onLoggedOut,
+                                        children: " Logout "
+                                    }, void 0, false, {
+                                        fileName: "src/components/NavView/nav-view.jsx",
+                                        lineNumber: 22,
+                                        columnNumber: 33
+                                    }, undefined)
+                                ]
+                            }, void 0, true, {
+                                fileName: "src/components/NavView/nav-view.jsx",
+                                lineNumber: 19,
+                                columnNumber: 29
+                            }, undefined)
+                        }, void 0, false)
                     ]
                 }, void 0, true, {
                     fileName: "src/components/NavView/nav-view.jsx",
@@ -42012,6 +42033,87 @@ $RefreshReg$(_c, "FavMovies");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-bootstrap":"3AD9A","../MovieCard/movie-card":"dg3Ls"}],"lJZlQ":[function() {},{}],"i5LP7":[function() {},{}]},["5qIsR","1xC6H","d8Dch"], "d8Dch", "parcelRequireaec4")
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-bootstrap":"3AD9A","../MovieCard/movie-card":"dg3Ls","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"M2wgy":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$f295 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$f295.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "SearchView", ()=>SearchView);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactBootstrap = require("react-bootstrap");
+var _s = $RefreshSig$();
+const SearchView = ()=>{
+    _s();
+    const [movieName, setMovieName] = (0, _react.useState)("");
+    const token = localStorage.getItem(`token`);
+    const searchMovie = ()=>{
+        fetch(`https://movie-flix-api-ca627b5a7961.herokuapp.com/movies/${movieName}`, {
+            method: "GET",
+            headers: {
+                Authorization: `Bearer ${token}`,
+                "Content-Type": "application/json"
+            }
+        }).then((response)=>{
+            if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+            return response.json();
+        }).then((data)=>{
+            const searchedMovie = data.map((movie)=>({
+                    id: movie._id,
+                    title: movie.title,
+                    director: movie.director.name,
+                    image: movie.image
+                }));
+            console.log(searchedMovie);
+        }).catch((error)=>{
+            console.error(error);
+        });
+    };
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form), {
+            className: "d-flex ms-auto",
+            children: [
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
+                    type: "search",
+                    placeholder: "Movie Name",
+                    className: "me-2",
+                    "aria-label": "Search",
+                    onChange: (e)=>setMovieName(e.target.value)
+                }, void 0, false, {
+                    fileName: "src/components/SearchView/search-view.jsx",
+                    lineNumber: 41,
+                    columnNumber: 17
+                }, undefined),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
+                    variant: "outline-success",
+                    children: "Search"
+                }, void 0, false, {
+                    fileName: "src/components/SearchView/search-view.jsx",
+                    lineNumber: 48,
+                    columnNumber: 17
+                }, undefined)
+            ]
+        }, void 0, true, {
+            fileName: "src/components/SearchView/search-view.jsx",
+            lineNumber: 40,
+            columnNumber: 13
+        }, undefined)
+    }, void 0, false);
+};
+_s(SearchView, "Dsbbk5VAsuJCjRMIqgmJbOP/7fI=");
+_c = SearchView;
+var _c;
+$RefreshReg$(_c, "SearchView");
+
+  $parcel$ReactRefreshHelpers$f295.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-bootstrap":"3AD9A","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"lJZlQ":[function() {},{}],"i5LP7":[function() {},{}]},["5qIsR","1xC6H","d8Dch"], "d8Dch", "parcelRequireaec4")
 
 //# sourceMappingURL=index.b4b6dfad.js.map

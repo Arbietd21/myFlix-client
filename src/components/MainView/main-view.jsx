@@ -7,7 +7,7 @@ import { Row, Col, Button } from 'react-bootstrap';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { NavBar } from '../NavView/nav-view';
 import { ProfileView } from '../ProfileView/profile-view';
-
+import { SearchView } from '../SearchView/search-view';
 
 export const MainView = () => {
 
@@ -120,6 +120,8 @@ export const MainView = () => {
                                     <Col>The list is empty!</Col>
                                 ) : (
                                     <>
+                                        <SearchView />
+
                                         {movies.map((movie) => (
                                             //if there is an authenticated user, it takes the movies card and maps each movie
                                             <Col className="mb-4" key={movie.id} md={3}>
