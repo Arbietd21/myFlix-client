@@ -42046,6 +42046,7 @@ parcelHelpers.export(exports, "SearchView", ()=>SearchView);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactBootstrap = require("react-bootstrap");
+var _reactRouterDom = require("react-router-dom");
 var _s = $RefreshSig$();
 const SearchView = ()=>{
     _s();
@@ -42061,14 +42062,6 @@ const SearchView = ()=>{
         }).then((response)=>{
             if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
             return response.json();
-        }).then((data)=>{
-            const searchedMovie = data.map((movie)=>({
-                    id: movie._id,
-                    title: movie.title,
-                    director: movie.director.name,
-                    image: movie.image
-                }));
-            console.log(searchedMovie);
         }).catch((error)=>{
             console.error(error);
         });
@@ -42085,21 +42078,28 @@ const SearchView = ()=>{
                     onChange: (e)=>setMovieName(e.target.value)
                 }, void 0, false, {
                     fileName: "src/components/SearchView/search-view.jsx",
-                    lineNumber: 41,
+                    lineNumber: 33,
                     columnNumber: 17
                 }, undefined),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
-                    variant: "outline-success",
-                    children: "Search"
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
+                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
+                        onClick: searchMovie,
+                        variant: "outline-success",
+                        children: "Search"
+                    }, void 0, false, {
+                        fileName: "src/components/SearchView/search-view.jsx",
+                        lineNumber: 41,
+                        columnNumber: 21
+                    }, undefined)
                 }, void 0, false, {
                     fileName: "src/components/SearchView/search-view.jsx",
-                    lineNumber: 48,
+                    lineNumber: 40,
                     columnNumber: 17
                 }, undefined)
             ]
         }, void 0, true, {
             fileName: "src/components/SearchView/search-view.jsx",
-            lineNumber: 40,
+            lineNumber: 32,
             columnNumber: 13
         }, undefined)
     }, void 0, false);
@@ -42114,6 +42114,6 @@ $RefreshReg$(_c, "SearchView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-bootstrap":"3AD9A","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"lJZlQ":[function() {},{}],"i5LP7":[function() {},{}]},["5qIsR","1xC6H","d8Dch"], "d8Dch", "parcelRequireaec4")
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-bootstrap":"3AD9A","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-router-dom":"9xmpe"}],"lJZlQ":[function() {},{}],"i5LP7":[function() {},{}]},["5qIsR","1xC6H","d8Dch"], "d8Dch", "parcelRequireaec4")
 
 //# sourceMappingURL=index.b4b6dfad.js.map

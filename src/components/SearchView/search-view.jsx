@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 export const SearchView = () => {
 
@@ -21,19 +22,10 @@ export const SearchView = () => {
                 }
                 return response.json();
             })
-            .then((data) => {
-                const searchedMovie = data.map((movie) => ({
-                    id: movie._id,
-                    title: movie.title,
-                    director: movie.director.name,
-                    image: movie.image
-                }))
-                console.log(searchedMovie)
-            })
             .catch((error) => {
                 console.error(error);
             })
-    }
+    };
 
     return (
         <>
@@ -45,7 +37,9 @@ export const SearchView = () => {
                     aria-label="Search"
                     onChange={(e) => setMovieName(e.target.value)}
                 />
-                <Button variant="outline-success">Search</Button>
+                <Link /*to={`/movies/${encodeURIComponent(movie.id)}`}*/>
+                    <Button onClick={searchMovie} variant="outline-success">Search</Button>
+                </Link>
             </Form>
         </>
     )
