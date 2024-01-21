@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Form, Button, Card, Container, Col } from 'react-bootstrap';
+import { FavMovies } from './fav-view';
 
 export const ProfileView = () => {
 
@@ -50,6 +51,9 @@ export const ProfileView = () => {
 
     return (
         <>
+            <Container>
+                <FavMovies />
+            </Container>
             <Container>
                 <Form>
                     <Form.Group>
