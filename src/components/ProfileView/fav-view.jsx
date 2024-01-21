@@ -41,7 +41,7 @@ export const FavMovies = () => {
     return (
         <>
             {movies.map((movie) => (
-                <Col md={4} key={movie._id}>
+                <Col className="mb-4" md={4} key={movie._id}>
                     <MovieCard movie={movie} />
                 </Col>
             ))}
