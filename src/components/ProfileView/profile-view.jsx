@@ -52,12 +52,14 @@ export const ProfileView = () => {
     return (
         <>
             <Container>
+                <h1>Favorite Movies</h1>
                 <FavMovies />
             </Container>
             <Container>
+                <h1>Update Info</h1>
                 <Form>
                     <Form.Group>
-                        <Form.Label>Username:</Form.Label>
+                        <Form.Label>*Username:</Form.Label>
                         <Form.Control
                             type="text"
                             value={username}
@@ -66,7 +68,7 @@ export const ProfileView = () => {
                     </Form.Group>
 
                     <Form.Group>
-                        <Form.Label>Password:</Form.Label>
+                        <Form.Label>*Password:</Form.Label>
                         <Form.Control
                             type="password"
                             value={password}
