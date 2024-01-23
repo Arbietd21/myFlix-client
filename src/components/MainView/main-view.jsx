@@ -3,7 +3,7 @@ import { MovieCard } from '../MovieCard/movie-card';
 import { MovieView } from '../MovieView/movie-view';
 import { LoginView } from '../LoginView/login-view';
 import { SignupView } from '../SignupView/signup-view';
-import { Row, Col, Button } from 'react-bootstrap';
+import { Row, Col, Button, Container } from 'react-bootstrap';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { NavBar } from '../NavView/nav-view';
 import { ProfileView } from '../ProfileView/profile-view';
@@ -67,7 +67,7 @@ export const MainView = () => {
                                 {user ? (
                                     <Navigate to="/" />
                                 ) : (
-                                    <Col md={5}>
+                                    <Col md={8}>
                                         <SignupView />
                                     </Col>
                                 )}
@@ -83,7 +83,7 @@ export const MainView = () => {
                                 {user ? (
                                     <Navigate to="/" />
                                 ) : (
-                                    <Col md={5}>
+                                    <Col md={8}>
                                         <LoginView onLoggedIn={(user) => setUser(user)} />
                                     </Col>
                                 )}
@@ -124,7 +124,7 @@ export const MainView = () => {
 
                                         {movies.map((movie) => (
                                             //if there is an authenticated user, it takes the movies card and maps each movie
-                                            <Col className="mb-4" key={movie.id} md={3}>
+                                            <Col key={movie.id} md={5} lg={4} >
                                                 <MovieCard movie={movie} />
                                             </Col>
                                         ))}
