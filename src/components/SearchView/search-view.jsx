@@ -22,6 +22,11 @@ export const SearchView = () => {
                 }
                 return response.json();
             })
+            .then((data) => {
+                const searchedMovieId = data._id;
+                //return console.log(data, searchedMovieId)
+                location.href = `/movies/${encodeURIComponent(searchedMovieId)}`
+            })
             .catch((error) => {
                 console.error(error);
             })
@@ -37,9 +42,7 @@ export const SearchView = () => {
                     aria-label="Search"
                     onChange={(e) => setMovieName(e.target.value)}
                 />
-                <Link /*to={`/movies/${encodeURIComponent(movie.id)}`}*/>
-                    <Button onClick={searchMovie} variant="outline-success">Search</Button>
-                </Link>
+                <Button onClick={searchMovie} variant="outline-success">Search</Button>
             </Form>
         </>
     )
