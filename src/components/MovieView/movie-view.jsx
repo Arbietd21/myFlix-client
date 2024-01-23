@@ -12,8 +12,6 @@ export const MovieView = ({ movies }) => {
     const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
     const token = localStorage.getItem("token")
 
-
-
     const addToFavorites = () => {
 
         fetch(`https://movie-flix-api-ca627b5a7961.herokuapp.com/users/${user.username}/movies/${movieId}`, {
@@ -23,6 +21,18 @@ export const MovieView = ({ movies }) => {
             .then(
                 alert("Added to favorites!")
             )
+    };
+
+    const deleteFavorite = () => {
+
+        fetch(`https://movie-flix-api-ca627b5a7961.herokuapp.com/users/${user.username}/favorites/${movieId}`, {
+            method: "DELETE",
+            headers: { Authorization: `Bearer ${token}` }
+        })
+            .then(
+                alert("Deleted from favorites!")
+            )
+
     };
 
     const updateUser = () => {
@@ -60,7 +70,11 @@ export const MovieView = ({ movies }) => {
             <Button
                 onClick={() => { addToFavorites(), updateUser() }}
 
-            >Favorite</Button>
+            >Add to favorite</Button>
+            <Button
+                onClick={() => { deleteFavorite(), updateUser() }}
+
+            >Remove from favorite</Button>
         </Col>
     );
 };
