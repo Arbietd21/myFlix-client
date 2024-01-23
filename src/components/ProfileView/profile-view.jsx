@@ -42,6 +42,7 @@ export const ProfileView = () => {
             .then(data => {
                 localStorage.setItem('user', JSON.stringify(data));
                 console.log(`Successfully updated!`, data);
+                alert("Successfully updated!")
             })
             .catch((e) => {
                 console.error(`Error updating user:`,)
